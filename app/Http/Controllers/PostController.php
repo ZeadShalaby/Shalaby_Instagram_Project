@@ -18,7 +18,7 @@ class PostController extends Controller
     public function index()
     {
        try{
-        $posts= Post:paginate(9);
+        $posts= Post::paginate(9);
         $posts = Post::with(['comments' => function($q){
             $q -> select('id','post_id','comment');
         }])->get();
